@@ -37,7 +37,7 @@ function journalPostSize () {
 	var y = $('.journal-post-text').height();
 	
 	if( $(window).width() <= 768 ) {
-		$('.journal-post-img, .journal-post-text').height(y);
+		$('.journal-post-img, .journal-post-text').height(y+10);
 	} else {
 		$('.journal-post-img, .journal-post-text').height(x);
 	}
