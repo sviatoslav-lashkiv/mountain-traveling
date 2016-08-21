@@ -26,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-					</button>
+				</button>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,7 +45,7 @@
 
 	<div class="container max-width">
 		<div class="row header-content">
-			<div class="col-md-6 col-sm-6 col-xs-8 order-now">
+			<div class="col-md-6 col-sm-6 col-xs-12 order-now">
 				<h1 class="text-uppercase text-white text-bold header-content-title">travel with us</h1>
 				<h1 class="text-blue header-content-title">to the Mountains</h1>
 				<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
@@ -58,7 +58,7 @@
 
 <!-- start section blog -->
 <section id="blog">
-	<div class="blog container max-width">
+	<div class="blog container-fluid max-width">
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-12 blog-text">
 				<h4 class="text-uppercase waves-left text-bold">about us</h4>
@@ -68,9 +68,12 @@
 				</p>
 				<button class="btn btn-info text-uppercase" id="blog-read-more">read more</button>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-12 blog-img">
-				<img src="img/blog-img-2.png" class="blog-img-big"/>
-				<img src="img/blog-img-1.png" class="blog-img-small" alt="" />
+			<div class="col-md-6 col-sm-6 col-xs-12 blog-img hidden-xs">
+				<img src="img/blog-img-2.png" class="blog-img-big" alt="img" />
+				<img src="img/blog-img-1.png" class="blog-img-small" alt="img" />
+			</div>
+			<div class="col-xs-12 visible-xs">
+				<img src="img/blog-img-2.png" alt="img" />
 			</div>
 		</div>
 	</div>
@@ -85,10 +88,10 @@
 		
 			<div class="col-md-8 col-sm-8 col-xs-12">
 				<div class="row journal-post">
-					<div class="col-xs-6 journal-post-img" id="love-img">
+					<div class="col-md-6 col-xs-6 journal-post-img" id="love-img">
 							<img src="img/post-love-logo.png" alt="" />
 					</div>
-					<div class="col-xs-6 journal-post-text" id="love-text">
+					<div class="col-md-6 col-xs-6 journal-post-text" id="love-text">
 						<p class="text-bold text-blue text-uppercase">love</p>
 						<h6 class="text-uppercase text-bold">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</h6>
 						<p>
@@ -98,7 +101,7 @@
 					</div>
 				</div>
 				<div class="row journal-post">
-					<div class="col-xs-6 journal-post-text" id="tree-text">
+					<div class="col-md-6 col-xs-6 journal-post-text" id="tree-text">
 						<p class="text-bold text-blue text-uppercase">tree</p>
 						<h5 class="text-uppercase text-bold">Lorem ipsum dolor sit amet, <strike>consectetur</strike> adipisicing elit,</h5>
 						<p>
@@ -106,17 +109,17 @@
 						</p>
 						<i class="small">02</i>
 					</div>				
-					<div class="col-xs-6 journal-post-img" id="tree-img">
+					<div class="col-md-6 col-xs-6 journal-post-img" id="tree-img">
 						<img src="img/post-tree-logo.png" alt="" />
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 col-xs-12">
 				<div class="row journal-post">
-					<div class="col-md-12 col-sm-12 col-xs-6 journal-post-img" id="water-img">
+					<div class="col-md-12 col-xs-6 journal-post-img" id="water-img">
 						<img src="img/post-water-logo.png" alt="" />
 					</div>
-					<div class="col-md-12 col-sm-12 col-xs-6 journal-post-text" id="water-text">
+					<div class="col-md-12 6col-xs-6 journal-post-text" id="water-text">
 						<p class="text-bold text-blue text-uppercase">water</p>
 						<h5 class="text-uppercase text-bold">Little pieces of our proudness</h5>
 						<p>
@@ -348,7 +351,6 @@
 <!-- end section footer -->
 
 	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
-	<script type="text/javascript" src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/slimbox2.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script src="js/wow.min.js"></script>
@@ -356,7 +358,7 @@
 	    wow = new WOW(
 				{
 					animateClass: 'animated',
-					offset:       150,
+					offset:       100,
 					callback:     function(box) {
 						console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
 					}
