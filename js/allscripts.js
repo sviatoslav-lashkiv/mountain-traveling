@@ -21,7 +21,7 @@ function scrollingToBlock (obj) {
 // Blog read-more button
 $('.blog-hide').css({'display' : 'none'});
 $('#blog-read-more').click( function () {
-	$('.blog-hide').toggle(2000)
+	$('.blog-hide').toggle(2000);
 });
 
 // Create a Tooltip bootsatrap
