@@ -37,11 +37,12 @@ function journalPostSize () {
 	var y = $('.journal-post-text').height();
 	
 	if( $(window).width() <= 768 ) {
-		$('.journal-post-img, .journal-post-text, .journal-post').height(y + 30);
+		$('.journal-post-img, .journal-post-text').height(y);
 	} else {
 		$('.journal-post-img, .journal-post-text').height(x);
 	}
 }
+
 journalPostSize();
 $(window).resize(journalPostSize); // викликаємо функцію після зміни розміру вікна
 
