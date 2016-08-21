@@ -1,19 +1,19 @@
 $(document).ready(function() { 
 
-// Скроллінг від 'якоря' до блока на який він ссилається
+// Г‘ГЄГ°Г®Г«Г«ВіГ­ГЈ ГўВіГ¤ 'ГїГЄГ®Г°Гї' Г¤Г® ГЎГ«Г®ГЄГ  Г­Г  ГїГЄГЁГ© ГўВіГ­ Г±Г±ГЁГ«Г ВєГІГјГ±Гї
 scrollingToBlock( $('.navbar') );
 scrollingToBlock( $('.order-now') );
 
 function scrollingToBlock (obj) {
 	obj.on('click', 'a', function (event) {
 	
-	event.preventDefault(); // відміна стандартне відпрацювання переходу по ссилці
+	event.preventDefault(); // ГўВіГ¤Г¬ВіГ­Г  Г±ГІГ Г­Г¤Г Г°ГІГ­ГҐ ГўВіГ¤ГЇГ°Г Г¶ГѕГўГ Г­Г­Гї ГЇГҐГ°ГҐГµГ®Г¤Гі ГЇГ® Г±Г±ГЁГ«Г¶Ві
 	
-	var id = $(this).attr('href'), // забираєм id блока з атрибута href
+	var id = $(this).attr('href'), // Г§Г ГЎГЁГ°Г ВєГ¬ id ГЎГ«Г®ГЄГ  Г§ Г ГІГ°ГЁГЎГіГІГ  href
 	
-	top = $(id).offset().top; // висота від початку сторінки до блока на який ссилається 'якірь'
+	top = $(id).offset().top; // ГўГЁГ±Г®ГІГ  ГўВіГ¤ ГЇГ®Г·Г ГІГЄГі Г±ГІГ®Г°ВіГ­ГЄГЁ Г¤Г® ГЎГ«Г®ГЄГ  Г­Г  ГїГЄГЁГ© Г±Г±ГЁГ«Г ВєГІГјГ±Гї 'ГїГЄВіГ°Гј'
 	
-	$('body,html').animate({scrollTop: top}, 1500); // анімація переходу на відстань top за 1500мс
+	$('body,html').animate({scrollTop: top}, 1500); // Г Г­ВіГ¬Г Г¶ВіГї ГЇГҐГ°ГҐГµГ®Г¤Гі Г­Г  ГўВіГ¤Г±ГІГ Г­Гј top Г§Г  1500Г¬Г±
 });
 }
 
@@ -31,15 +31,15 @@ $('[data-toggle="tooltip"]').tooltip({ 'placement': 'right' });
 
 
 
-//  Вирівнення висоти блоків journal-posts
+//  Г‚ГЁГ°ВіГўГ­ГҐГ­Г­Гї ГўГЁГ±Г®ГІГЁ ГЎГ«Г®ГЄВіГў journal-posts
 function journalPostSize () {
 	var x = $('.journal-post-img').width();
 	$('.journal-post-img, .journal-post-text').height(x);
 }
 journalPostSize();
-$(window).resize(journalPostSize); // викликаємо функцію після зміни розміру вікна
+$(window).resize(journalPostSize); // ГўГЁГЄГ«ГЁГЄГ ВєГ¬Г® ГґГіГ­ГЄГ¶ВіГѕ ГЇВіГ±Г«Гї Г§Г¬ВіГ­ГЁ Г°Г®Г§Г¬ВіГ°Гі ГўВіГЄГ­Г 
 
-// Наведення курсора на journal-post-text
+// ГЌГ ГўГҐГ¤ГҐГ­Г­Гї ГЄГіГ°Г±Г®Г°Г  Г­Г  journal-post-text
 $('.journal-post').hover( function () {
 		$('.journal-post-img', this).animate({
 			'opacity' :  '1'
@@ -172,6 +172,7 @@ $.fn.fadeDown = function  (delay) {
 	$(this).addClass('wow fadeInDown').attr('data-wow-delay', delay + 'ms');	
 }
 //Header
+$('*').attr({'data-wow-offset':'0'});
 $('.header').addClass('wow fadeIn');
 $('.header-logo').addClass('wow fadeInRight');
 $('.navbar-header').addClass('wow fadeInLeft');
@@ -256,4 +257,4 @@ $('.footer-wrap p:eq(2)').fadeLeft('1400');
 $('.footer-wrap p:eq(3)').fadeLeft('1600');
 
 
-}); //Конец ready
+}); //ГЉГ®Г­ГҐГ¶ ready
