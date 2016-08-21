@@ -1,19 +1,19 @@
 $(document).ready(function() { 
 
-// Ñêðîëë³íã â³ä 'ÿêîðÿ' äî áëîêà íà ÿêèé â³í ññèëàºòüñÿ
+// Скроллінг від 'якоря' до блока на який він ссилається
 scrollingToBlock( $('.navbar') );
 scrollingToBlock( $('.order-now') );
 
 function scrollingToBlock (obj) {
 	obj.on('click', 'a', function (event) {
 	
-	event.preventDefault(); // â³äì³íà ñòàíäàðòíå â³äïðàöþâàííÿ ïåðåõîäó ïî ññèëö³
+		event.preventDefault(); // відміна стандартне відпрацювання переходу по ссилці
 	
-	var id = $(this).attr('href'), // çàáèðàºì id áëîêà ç àòðèáóòà href
+		var id = $(this).attr('href'), // забираєм id блока з атрибута href
 	
-	top = $(id).offset().top; // âèñîòà â³ä ïî÷àòêó ñòîð³íêè äî áëîêà íà ÿêèé ññèëàºòüñÿ 'ÿê³ðü'
+		top = $(id).offset().top; // висота від початку сторінки до блока на який ссилається 'якірь'
 	
-	$('body,html').animate({scrollTop: top}, 1500); // àí³ìàö³ÿ ïåðåõîäó íà â³äñòàíü top çà 1500ìñ
+		$('body,html').animate({scrollTop: top}, 1500); // анімація переходу на відстань top за 1500мс
 });
 }
 
@@ -21,7 +21,7 @@ function scrollingToBlock (obj) {
 // Blog read-more button
 $('.blog-hide').css({'display' : 'none'});
 $('#blog-read-more').click( function () {
-	$('.blog-hide').toggle(2000);
+	$('.blog-hide').toggle(500)
 });
 
 // Create a Tooltip bootsatrap
@@ -31,22 +31,28 @@ $('[data-toggle="tooltip"]').tooltip({ 'placement': 'right' });
 
 
 
-//  Âèð³âíåííÿ âèñîòè áëîê³â journal-posts
+//  Вирівнення висоти блоків journal-posts
 function journalPostSize () {
 	var x = $('.journal-post-img').width();
-	$('.journal-post-img, .journal-post-text').height(x);
+	var y = $('.journal-post-text').height();
+	
+	if( $(window).width() <= 768 ) {
+		$('.journal-post-img, .journal-post-text, .journal-post').height(y + 30);
+	} else {
+		$('.journal-post-img, .journal-post-text').height(x);
+	}
 }
 journalPostSize();
-$(window).resize(journalPostSize); // âèêëèêàºìî ôóíêö³þ ï³ñëÿ çì³íè ðîçì³ðó â³êíà
+$(window).resize(journalPostSize); // викликаємо функцію після зміни розміру вікна
 
-// Íàâåäåííÿ êóðñîðà íà journal-post-text
+// Наведення курсора на journal-post-text
 $('.journal-post').hover( function () {
 		$('.journal-post-img', this).animate({
 			'opacity' :  '1'
 		}, 500 );
 		
 		$('.journal-post-text', this).css({
-			'backgroundColor' :  '#ECECEC'
+			'backgroundColor' :  '#F6F4F5'
 		});
 		
 		$('.journal-post-img img:first', this).css({
@@ -171,18 +177,18 @@ $.fn.fadeUp = function  (delay) {
 $.fn.fadeDown = function  (delay) {
 	$(this).addClass('wow fadeInDown').attr('data-wow-delay', delay + 'ms');	
 }
+
 //Header
-$('*').attr({'data-wow-offset':'0'});
 $('.header').addClass('wow fadeIn');
 $('.header-logo').addClass('wow fadeInRight');
 $('.navbar-header').addClass('wow fadeInLeft');
-$('.navbar-nav [href*=blog]').fadeLeft('1200');
-$('.navbar-nav [href*=journal]').fadeLeft('1050');
-$('.navbar-nav [href*=scheme]').fadeLeft('900');
-$('.navbar-nav [href*=travel]').fadeLeft('750');
-$('.navbar-nav [href*=gallery]').fadeLeft('600');
-$('.navbar-nav [href*=footer]').fadeLeft('450');
-$('.navbar-nav button').fadeLeft('150');
+$('.navbar-nav [href*=blog]').fadeLeft('700');
+$('.navbar-nav [href*=journal]').fadeLeft('600');
+$('.navbar-nav [href*=scheme]').fadeLeft('500');
+$('.navbar-nav [href*=travel]').fadeLeft('400');
+$('.navbar-nav [href*=gallery]').fadeLeft('300');
+$('.navbar-nav [href*=footer]').fadeLeft('200');
+$('.navbar-nav button').fadeLeft('10');
 $('.header-content').addClass('wow fadeIn').attr('data-wow-duration', '2000ms');		
 $('.header-content h1:eq(0)').addClass('wow bounceInDown').attr('data-wow-duration', '2200ms');		
 $('.header-content h1:eq(1)').addClass('wow bounceInUp').attr('data-wow-duration', '2400ms');		
@@ -190,16 +196,16 @@ $('.header-content p').fadeLeft('1400');
 $('.header-content a').fadeLeft('1600');		
 
 // Blog
-$('#blog, .blog').attr({'data-wow-offset':'200'}).addClass('wow fadeIn');		
+$('#blog, .blog').addClass('wow fadeIn');		
 $('.blog-text h4').fadeLeft('200');		
 $('.blog-text p').fadeLeft('500');		
 $('.blog-text button').fadeLeft('800');		
-$('.blog-img-big').addClass('wow rollIn').attr({'data-wow-delay':'400ms', 'data-wow-offset':'300'});		
-$('.blog-img-big').addClass('wow rollIn').attr({'data-wow-delay':'400ms', 'data-wow-offset':'300'});		
-$('.blog-img-small').addClass('wow rotateInUpLeft').attr('data-wow-offset', '200');
+$('.blog-img-big').addClass('wow rollIn').attr({'data-wow-delay':'400ms'});		
+$('.blog-img-big').addClass('wow rollIn').attr({'data-wow-delay':'400ms'});		
+$('.blog-img-small').addClass('wow rotateInUpLeft');
 
 // Journal
-$('#journal').attr({'data-wow-offset':'100'});		
+$('#journal');		
 $('.journal-post-img:eq(0)').fadeLeft('400');	
 $('.journal-post-text:eq(0)').fadeRight('400');	
 $('.journal-post-img:eq(1)').fadeRight('400');	
@@ -210,13 +216,13 @@ $('#journal h4').addClass('wow pulse').attr('data-wow-delay', '400ms');
 
 // Offer
 $('#order-now').addClass('wow fadeIn').attr({'data-wow-delay':'0'});	
-$('#order-now h5').addClass('wow bounceInLeft').attr('data-wow-delay', '600ms');	
+$('#order-now h5').addClass('wow bounceInLeft').attr('data-wow-delay', '200ms');	
 $('#order-now p:eq(0)').fadeLeft('150');
-$('.offer-form').fadeLeft('450');
-$('#form-name').fadeRight('850');
-$('#form-phone').fadeRight('1000');
-$('.offer-form button').fadeRight('1200');
-$('#order-now p:eq(1)').fadeLeft('750');
+$('.offer-form').fadeLeft('400');
+$('#form-name').fadeRight('600');
+$('#form-phone').fadeRight('650');
+$('.offer-form button').fadeRight('800');
+$('#order-now p:eq(1)').fadeLeft('850');
 
 // Scheme
 $('#scheme h4').addClass('wow bounceInLeft').attr('data-wow-delay', '100ms');
@@ -233,28 +239,27 @@ $('.scheme-blocks p').fadeUp('900');
 	
 // Travel
 $('.travel-wrap').addClass('wow fadeIn');
-$('.travel-wrap h4').fadeLeft('800');
-$('.travel-blocks:eq(0)').fadeLeft('1000');
-$('.travel-blocks:eq(1)').fadeLeft('1250');
-$('.travel-blocks:eq(2)').fadeLeft('1500');
-$('.travel-blocks:eq(3)').fadeLeft('1750');
+$('.travel-wrap h4').fadeLeft('200');
+$('.travel-blocks:eq(0)').fadeLeft('400');
+$('.travel-blocks:eq(1)').fadeLeft('600');
+$('.travel-blocks:eq(2)').fadeLeft('800');
+$('.travel-blocks:eq(3)').fadeLeft('1000');
 
 // Gallery
 $('#gallery h4').fadeLeft('800');
-$('.gallery-img:eq(0)').fadeRight('1000');
-$('.gallery-img:eq(2)').fadeRight('1200');
-$('.gallery-img:eq(4)').fadeRight('1400');
-$('.gallery-img:eq(1)').fadeRight('1600');
-$('.gallery-img:eq(3)').fadeRight('1800');
-$('.gallery-img:eq(5)').fadeRight('2000');
+$('.gallery-img:eq(0)').fadeRight('400');
+$('.gallery-img:eq(2)').fadeRight('600');
+$('.gallery-img:eq(4)').fadeRight('800');
+$('.gallery-img:eq(1)').fadeRight('1000');
+$('.gallery-img:eq(3)').fadeRight('1200');
+$('.gallery-img:eq(5)').fadeRight('1400');
 
 // Footer
 $('.footer-wrap').addClass('wow fadeIn');
-$('.footer-wrap h4').fadeLeft('800');
-$('.footer-wrap p:eq(0)').fadeLeft('1000');
-$('.footer-wrap p:eq(1)').fadeLeft('1200');
-$('.footer-wrap p:eq(2)').fadeLeft('1400');
-$('.footer-wrap p:eq(3)').fadeLeft('1600');
+$('.footer-wrap h4').fadeLeft('400');
+$('.footer-wrap p:eq(0)').fadeLeft('600');
+$('.footer-wrap p:eq(1)').fadeLeft('800');
+$('.footer-wrap p:eq(2)').fadeLeft('1000');
+$('.footer-wrap p:eq(3)').fadeLeft('1200');
 
-
-}); //Êîíåö ready
+}); //Конец ready
